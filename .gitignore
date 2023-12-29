@@ -1,0 +1,28 @@
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# .NET Core
+*.dll
+*.exe
+*.pdb
+*.log
+*.zip
+*.gz
+
+# Visual Studio
+*.cache
+*.log
+**/.vs/

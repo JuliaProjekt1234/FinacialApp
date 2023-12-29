@@ -1,0 +1,11 @@
+.transaction-wrapper {
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
