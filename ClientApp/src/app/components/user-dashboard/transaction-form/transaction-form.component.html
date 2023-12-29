@@ -1,0 +1,47 @@
+<div class="transaction-wrapper">
+    <form class="transaction-form-wrapper card" [formGroup]="transactionForm" (ngSubmit)="submit()">
+        <div>
+            <p class="f-big">Add new transaction</p>
+            <p>Enter the required details in the form fields to create a new transaction</p>
+        </div>
+
+        <div class="input-section">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input type="text" matInput formControlName="title" placeholder="Tilte">
+                @if (transactionForm.get('title')?.hasError('required')) {
+                <mat-error>Tilte is required</mat-error>
+                }
+                @else if (transactionForm.get('title')?.hasError('maxlength')) {
+                <mat-error>Tilte is too long. Max length is 40</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input type="text" matInput formControlName="address" placeholder="Address">
+                @if (transactionForm.get('address')?.hasError('required')) {
+                <mat-error>Address is required</mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Amount</mat-label>
+                <input type="number" matInput formControlName="amount" placeholder="Amount">
+                @if (transactionForm.get('amount')?.hasError('required')) {
+                <mat-error>Amount is required</mat-error>
+                }
+                @else if (transactionForm.get('amount')?.hasError('greatenThan')) {
+                <mat-error>Amount should be graten then 0</mat-error>
+                }
+            </mat-form-field>
+
+            <div class="button-wrapper">
+                <a routerLink="/user-dasboard"><button mat-stroked-button type="button"
+                        color="primary">Cancel</button></a>
+                <button mat-raised-button [disabled]="transactionForm.invalid" type="submit"
+                    color="primary">Confirm</button>
+            </div>
+        </div>
+    </form>
+</div>
